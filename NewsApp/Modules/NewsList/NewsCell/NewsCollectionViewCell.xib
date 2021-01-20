@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Rounded-Bold.otf">
+            <string>SFProRounded-Bold</string>
+        </array>
+        <array key="SF-Pro-Rounded-Regular.otf">
+            <string>SFProRounded-Regular</string>
+        </array>
+        <array key="SF-Pro-Rounded-Ultralight.otf">
+            <string>SFProRounded-Ultralight</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NewsCollectionViewCell" customModule="NewsApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="177" height="259"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="177" height="259"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lId-Th-08J">
+                        <rect key="frame" x="0.0" y="0.0" width="177" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="dJT-LO-LRY"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHY-yA-s9E">
+                        <rect key="frame" x="0.0" y="115" width="177" height="20.5"/>
+                        <fontDescription key="fontDescription" name="SFProRounded-Bold" family="SF Pro Rounded" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udm-c9-qhF">
+                        <rect key="frame" x="0.0" y="145.5" width="177" height="20.5"/>
+                        <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcu-yi-ZpF">
+                        <rect key="frame" x="0.0" y="176" width="177" height="20.5"/>
+                        <fontDescription key="fontDescription" name="SFProRounded-Ultralight" family="SF Pro Rounded" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="lId-Th-08J" secondAttribute="trailing" id="1I1-qY-c2m"/>
+                <constraint firstItem="WHY-yA-s9E" firstAttribute="top" secondItem="lId-Th-08J" secondAttribute="bottom" constant="15" id="AQa-Qj-ouX"/>
+                <constraint firstAttribute="trailing" secondItem="udm-c9-qhF" secondAttribute="trailing" id="Fhj-hO-9vZ"/>
+                <constraint firstItem="udm-c9-qhF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TAe-of-4wK"/>
+                <constraint firstItem="lId-Th-08J" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="XWB-kS-BYi"/>
+                <constraint firstAttribute="trailing" secondItem="WHY-yA-s9E" secondAttribute="trailing" id="fwZ-Yi-OEy"/>
+                <constraint firstItem="udm-c9-qhF" firstAttribute="top" secondItem="WHY-yA-s9E" secondAttribute="bottom" constant="10" id="g9b-Mx-eNQ"/>
+                <constraint firstItem="lId-Th-08J" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jOs-ty-r6g"/>
+                <constraint firstItem="Tcu-yi-ZpF" firstAttribute="top" secondItem="udm-c9-qhF" secondAttribute="bottom" constant="10" id="jw3-GZ-Fke"/>
+                <constraint firstAttribute="trailing" secondItem="Tcu-yi-ZpF" secondAttribute="trailing" id="lLh-Zq-Mzl"/>
+                <constraint firstItem="Tcu-yi-ZpF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="wda-N0-iaF"/>
+                <constraint firstItem="WHY-yA-s9E" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yuE-VC-v2n"/>
+            </constraints>
+            <size key="customSize" width="177" height="259"/>
+            <connections>
+                <outlet property="image" destination="lId-Th-08J" id="Cfd-lC-EwZ"/>
+                <outlet property="labelDate" destination="Tcu-yi-ZpF" id="Xvw-hX-LJG"/>
+                <outlet property="labelSource" destination="udm-c9-qhF" id="Hbh-Ls-RMu"/>
+                <outlet property="labelTitle" destination="WHY-yA-s9E" id="J7i-ra-s5X"/>
+            </connections>
+            <point key="canvasLocation" x="67.391304347826093" y="109.48660714285714"/>
+        </collectionViewCell>
+    </objects>
+</document>
