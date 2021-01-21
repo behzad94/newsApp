@@ -10,6 +10,8 @@ import Foundation
 struct NewsList: Codable {
     let status: String?
     let totalResults: Int?
+    let code: String?
+    let message: String?
     let articles: [News]?
 }
 

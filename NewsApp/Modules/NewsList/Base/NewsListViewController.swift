@@ -19,35 +19,41 @@ class NewsListViewController: BaseViewController {
     let disposeBag = DisposeBag()
     let viewModel = NewsListViewModel()
     
-    var newsList: NewsList?
+    var newsList = [News]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.newsList()
-        
     }
     
     override func initUIComponent() {
-        if let layout = collectionView?.collectionViewLayout as? PinterestLayout {
-            layout.delegate = self
-        }
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(UINib(resource: R.nib.newsCollectionViewCell), forCellWithReuseIdentifier: "cell")
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        
+        let numberOfCellInLine = 2
+        //
+        let viewWidth = view.frame.width - 10
+        layout.itemSize = CGSize(width: (Int(viewWidth) / numberOfCellInLine), height: 280)
+        layout.minimumInteritemSpacing = 5
+        layout.minimumLineSpacing = 5
+        collectionView!.collectionViewLayout = layout
         
         if let patternImage = UIImage(named: "background") {
             view.backgroundColor = UIColor(patternImage: patternImage)
         }
         
         collectionView?.backgroundColor = .clear
-        collectionView?.contentInset = UIEdgeInsets(top: 23, left: 16, bottom: 10, right: 16)
-        view.contentMode = .scaleAspectFill
+        //        collectionView?.contentInset = UIEdgeInsets(top: 23, left: 16, bottom: 10, right: 16)
+        //        view.contentMode = .scaleAspectFill
     }
     
     override func bindViewModel() {
         viewModel.newsListResponse.asObserver().subscribe(onNext: {[weak self] response in
-            self?.newsList = response
+            self?.newsList.append(contentsOf: response)
             self?.collectionView.reloadData()
             self?.vibrateFeedback()
         }).disposed(by: disposeBag)
@@ -66,24 +72,46 @@ class NewsListViewController: BaseViewController {
         Loaf(message, state: .custom(.init(backgroundColor: .black, icon: UIImage(named: "moon"))) ,sender: self).show()
     }
     
+    func showBottomSheet() {
+        performSegue(withIdentifier: R.segue.newsListViewController.newsListToCategory.identifier, sender: nil)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height {
+            print(" you reached end of the table")
+            loadMoreNews()
+        }
+    }
+    
+    func loadMoreNews() {
+        viewModel.loadMoreNews(totalDisplayedNews: newsList.count)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == R.segue.newsListViewController.newsListToCategory.identifier {
+            let destination = segue.destination as? ActionSheetViewController
+            destination?.delegate = self
+        }
+    }
+    
+    @IBAction func categoryTapped(_ sender: Any) {
+        showBottomSheet()
+    }
 }
 
 // MARK: CollectionView Data Source
 extension NewsListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let list = newsList?.articles {
-            return list.count
-        } else {
-            return 0
-        }
+        return newsList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NewsCollectionViewCell
-        if let news = newsList?.articles?[indexPath.row] {
-            cell.set(news: news)
-        }
+        cell.set(news: newsList[indexPath.row])
         return cell
     }
 }
@@ -93,30 +121,12 @@ extension NewsListViewController: UICollectionViewDelegate {
     
 }
 
-// MARK: CollectionView Delegate Flow Layout
-extension NewsListViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) / 2
-        return CGSize(width: itemSize, height: itemSize)
-    }
-}
 
-// MARK: Pinterest Layout Delegate
-extension NewsListViewController: PinterestLayoutDelegate {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-        if let list = newsList?.articles?[indexPath.row] {
-            //            let image = UIImageView()
-            //            image.kf.setImage(with: URL(string: list.coverImageURL ?? ""))
-            //            return image.image?.size.height ?? 0
-            if indexPath.row == 1 {
-                return 277
-            } else {
-                return 296
-            }
-        } else {
-            return 0
-        }
+extension NewsListViewController: CategoryDelegate {
+    func CategorySelected(category: String) {
+        newsList = [News]()
+        collectionView.reloadData()
+        viewModel.category = category
+        viewModel.newsList()
     }
 }

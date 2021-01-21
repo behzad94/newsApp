@@ -22,7 +22,13 @@ class NewsCollectionViewCell: UICollectionViewCell {
     }
     
     func set(news: News) {
-        image.kf.setImage(with: URL(string: news.urlToImage!))
+        if let imageURL = news.urlToImage {
+            image.kf.setImage(with: URL(string: imageURL))
+            image.contentMode = .scaleAspectFill
+        } else {
+            image.image = R.image.noPhoto()
+            image.contentMode = .scaleAspectFit
+        }
         
         labelTitle.text = news.title!
         labelSource.text = news.source?.name

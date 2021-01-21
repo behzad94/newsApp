@@ -35,10 +35,6 @@ class NetworkCall: NSObject {
                 response in
                 debugPrint(response)
                 if response.error == nil {
-                    if let auth = response.response?.allHeaderFields["Authorization"] as? String {
-                        let persistor = Persistor()
-                        persistor.save(token: auth)
-                    }
                     guard let data = response.data else { return }
                     do {
                         let decoder = JSONDecoder()
@@ -49,17 +45,8 @@ class NetworkCall: NSObject {
                         print(error)
                     }
                 } else {
-                    guard let data = response.data else { return }
-                    do {
-                        let decoder = JSONDecoder()
-                        let result = try decoder.decode(T.self, from: data)
-                        observer.onNext(RepositoryResponse(value: result, restDataResponse: response))
-                        observer.onCompleted()
-                    } catch {
-                        observer.onNext(RepositoryResponse(error: response.error))
-                        observer.onError(response.error!)
-                        print(error)
-                    }
+                    observer.onNext(RepositoryResponse(error: response.error))
+                    observer.onError(response.error!)
                 }
             }
             return Disposables.create()

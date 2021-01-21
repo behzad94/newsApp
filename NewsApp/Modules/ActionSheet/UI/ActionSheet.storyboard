@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Es-Ve-pBb">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Rounded-Ultralight.otf">
+            <string>SFProRounded-Ultralight</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Action Sheet View Controller-->
+        <scene sceneID="6c9-m1-btm">
+            <objects>
+                <viewController storyboardIdentifier="ActionSheetViewController" id="4Es-Ve-pBb" customClass="ActionSheetViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fwo-vr-nih">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="qwK-5c-CTW">
+                                <rect key="frame" x="20" y="258" width="90" height="380"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQD-aE-uCq">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="YIi-W4-hw5"/>
+                                            <constraint firstAttribute="height" constant="90" id="bMl-qd-xCH"/>
+                                        </constraints>
+                                        <state key="normal" image="business"/>
+                                        <connections>
+                                            <action selector="businessTapped:" destination="4Es-Ve-pBb" eventType="touchUpInside" id="wGg-so-isk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rm9-fk-edt">
+                                        <rect key="frame" x="0.0" y="145" width="90" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="965-kp-7gA"/>
+                                            <constraint firstAttribute="width" constant="90" id="bbR-Mu-kgW"/>
+                                        </constraints>
+                                        <state key="normal" image="newspaper"/>
+                                        <connections>
+                                            <action selector="generalTapped:" destination="4Es-Ve-pBb" eventType="touchUpInside" id="3vh-79-kib"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U62-gi-FuF">
+                                        <rect key="frame" x="0.0" y="290" width="90" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="ZBJ-BL-Cls"/>
+                                            <constraint firstAttribute="width" constant="90" id="bzq-B6-hId"/>
+                                        </constraints>
+                                        <state key="normal" image="popcorn"/>
+                                        <connections>
+                                            <action selector="entertainmentTapped:" destination="4Es-Ve-pBb" eventType="touchUpInside" id="atg-8f-DV5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="qNS-Ka-V7n">
+                                <rect key="frame" x="304" y="258" width="90" height="380"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c08-7G-KFd">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="EIh-yy-1Xx"/>
+                                            <constraint firstAttribute="width" constant="90" id="Sj8-9n-TLv"/>
+                                        </constraints>
+                                        <state key="normal" image="atom"/>
+                                        <connections>
+                                            <action selector="scienceTapped:" destination="4Es-Ve-pBb" eventType="touchUpInside" id="Qz3-Df-tJH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYU-Qm-OKD">
+                                        <rect key="frame" x="0.0" y="145" width="90" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="DRX-L1-H8W"/>
+                                            <constraint firstAttribute="height" constant="90" id="NlN-1o-vQl"/>
+                                        </constraints>
+                                        <state key="normal" image="running"/>
+                                        <connections>
+                                            <action selector="sportsTapped:" destination="4Es-Ve-pBb" eventType="touchUpInside" id="YDm-hq-7ff"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Jl-3E-T9Q">
+                                        <rect key="frame" x="0.0" y="290" width="90" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="Q5Z-NR-Gn3"/>
+                                            <constraint firstAttribute="width" constant="90" id="TF5-DZ-um1"/>
+                                        </constraints>
+                                        <state key="normal" image="technology"/>
+                                        <connections>
+                                            <action selector="technologyTapped:" destination="4Es-Ve-pBb" eventType="touchUpInside" id="lbD-mJ-XcG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can choose the news you want here. Isn't it cool?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVX-Tr-iib">
+                                <rect key="frame" x="40" y="64" width="334" height="122"/>
+                                <fontDescription key="fontDescription" name="SFProRounded-Ultralight" family="SF Pro Rounded" pointSize="34"/>
+                                <color key="textColor" systemColor="systemPinkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xt-rS-wTv">
+                                <rect key="frame" x="162" y="403" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="CXB-0k-2lI"/>
+                                    <constraint firstAttribute="height" constant="90" id="YSm-1E-VJH"/>
+                                </constraints>
+                                <state key="normal" image="hospital"/>
+                                <connections>
+                                    <action selector="healthTapped:" destination="4Es-Ve-pBb" eventType="touchUpInside" id="HOK-oQ-yVW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dr3-Ip-9L3">
+                                <rect key="frame" x="182" y="752" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ePE-qr-WRO"/>
+                                    <constraint firstAttribute="width" constant="50" id="rtR-az-lwC"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="multiply.square.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="dismissTapped:" destination="4Es-Ve-pBb" eventType="touchUpInside" id="0um-tw-xip"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uDi-ca-STs"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
+                        <constraints>
+                            <constraint firstItem="dVX-Tr-iib" firstAttribute="top" secondItem="uDi-ca-STs" secondAttribute="top" constant="20" id="5qJ-rs-8Dp"/>
+                            <constraint firstItem="qwK-5c-CTW" firstAttribute="leading" secondItem="uDi-ca-STs" secondAttribute="leading" constant="20" id="Qw5-v4-w7W"/>
+                            <constraint firstItem="8xt-rS-wTv" firstAttribute="centerY" secondItem="fwo-vr-nih" secondAttribute="centerY" id="RvH-7u-wFZ"/>
+                            <constraint firstItem="qNS-Ka-V7n" firstAttribute="centerY" secondItem="fwo-vr-nih" secondAttribute="centerY" id="cl3-vF-08d"/>
+                            <constraint firstItem="dr3-Ip-9L3" firstAttribute="centerX" secondItem="fwo-vr-nih" secondAttribute="centerX" id="eBE-RK-9v8"/>
+                            <constraint firstItem="uDi-ca-STs" firstAttribute="trailing" secondItem="dVX-Tr-iib" secondAttribute="trailing" constant="40" id="esC-s3-rjf"/>
+                            <constraint firstItem="uDi-ca-STs" firstAttribute="trailing" secondItem="qNS-Ka-V7n" secondAttribute="trailing" constant="20" id="h6x-dV-e6N"/>
+                            <constraint firstItem="dVX-Tr-iib" firstAttribute="leading" secondItem="uDi-ca-STs" secondAttribute="leading" constant="40" id="j6b-To-nhY"/>
+                            <constraint firstItem="uDi-ca-STs" firstAttribute="bottom" secondItem="dr3-Ip-9L3" secondAttribute="bottom" constant="60" id="rGy-9J-UBn"/>
+                            <constraint firstItem="8xt-rS-wTv" firstAttribute="centerX" secondItem="fwo-vr-nih" secondAttribute="centerX" id="sRJ-oA-fcG"/>
+                            <constraint firstItem="qwK-5c-CTW" firstAttribute="centerY" secondItem="fwo-vr-nih" secondAttribute="centerY" id="xof-6b-glm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="labelGuide" destination="dVX-Tr-iib" id="noJ-p0-x5O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y7v-pn-lXy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="169.56521739130437" y="-7.3660714285714279"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="atom" width="512" height="512"/>
+        <image name="business" width="512" height="512"/>
+        <image name="hospital" width="512" height="512"/>
+        <image name="multiply.square.fill" catalog="system" width="128" height="114"/>
+        <image name="newspaper" width="512" height="512"/>
+        <image name="popcorn" width="512" height="512"/>
+        <image name="running" width="512" height="512"/>
+        <image name="technology" width="512" height="512"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

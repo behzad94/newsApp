@@ -21,23 +21,44 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8gL-bU-eli">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewLayout key="collectionViewLayout" id="Gaj-NZ-dPN" customClass="PinterestLayout" customModule="NewsApp" customModuleProvider="target"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zXd-nW-dwF">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kSl-dD-bHh">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IDt-LK-uMm">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2z-xd-GUX">
+                                <rect key="frame" x="339" y="712" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="FdS-Ha-3KB"/>
+                                    <constraint firstAttribute="height" constant="50" id="czd-2L-UMc"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemTealColor"/>
+                                <state key="normal" image="categories">
+                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="categoryTapped:" destination="XzI-gb-Sok" eventType="touchUpInside" id="9yG-i0-2zK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sfw-LY-z8v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8gL-bU-eli" firstAttribute="top" secondItem="F9z-Ud-XM6" secondAttribute="top" id="9ah-WG-hbK"/>
+                            <constraint firstItem="sfw-LY-z8v" firstAttribute="trailing" secondItem="q2z-xd-GUX" secondAttribute="trailing" constant="25" id="ASx-gH-hrD"/>
+                            <constraint firstItem="sfw-LY-z8v" firstAttribute="bottom" secondItem="q2z-xd-GUX" secondAttribute="bottom" constant="100" id="Cbl-Ta-sRg"/>
                             <constraint firstItem="8gL-bU-eli" firstAttribute="trailing" secondItem="sfw-LY-z8v" secondAttribute="trailing" id="DFb-VS-j4A"/>
                             <constraint firstAttribute="bottom" secondItem="8gL-bU-eli" secondAttribute="bottom" id="WJx-oc-ovE"/>
                             <constraint firstItem="8gL-bU-eli" firstAttribute="leading" secondItem="sfw-LY-z8v" secondAttribute="leading" id="dg0-sE-6hM"/>
@@ -45,16 +66,34 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="8gL-bU-eli" id="bcQ-N1-8EB"/>
+                        <segue destination="Bf5-Kb-LAh" kind="show" identifier="newsListToCategory" id="zXE-Da-iwY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIL-N4-dVe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="105.79710144927537" y="-1.3392857142857142"/>
         </scene>
+        <!--ActionSheetViewController-->
+        <scene sceneID="Hy8-Ij-QTq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ActionSheet" referencedIdentifier="ActionSheetViewController" id="Bf5-Kb-LAh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="G36-B0-HkA"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="50I-Hy-2Nb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="746" y="7"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="categories" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

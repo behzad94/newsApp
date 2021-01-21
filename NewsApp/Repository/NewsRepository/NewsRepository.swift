@@ -15,7 +15,7 @@ class NewsRespository {
     
     let newsRestRepository = NewsRestRespository()
     
-    func newsList(category: String? = nil) -> Observable<RepositoryResponse<NewsList>> {
-        return newsRestRepository.newsList(category: category)
+    func newsList(category: String? = nil, page: String? = nil) -> Observable<RepositoryResponse<NewsList>> {
+        return newsRestRepository.newsList(category: category, page: page)
     }
 }
