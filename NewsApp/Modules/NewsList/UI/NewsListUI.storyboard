@@ -39,10 +39,10 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2z-xd-GUX">
-                                <rect key="frame" x="339" y="712" width="50" height="50"/>
+                                <rect key="frame" x="319" y="692" width="70" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="FdS-Ha-3KB"/>
-                                    <constraint firstAttribute="height" constant="50" id="czd-2L-UMc"/>
+                                    <constraint firstAttribute="width" constant="70" id="FdS-Ha-3KB"/>
+                                    <constraint firstAttribute="height" constant="70" id="czd-2L-UMc"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="systemTealColor"/>
                                 <state key="normal" image="categories">
