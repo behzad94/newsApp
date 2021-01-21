@@ -45,8 +45,17 @@ class NetworkCall: NSObject {
                         print(error)
                     }
                 } else {
-                    observer.onNext(RepositoryResponse(error: response.error))
-                    observer.onError(response.error!)
+                    guard let data = response.data else { return }
+                    do {
+                        let decoder = JSONDecoder()
+                        let result = try decoder.decode(T.self, from: data)
+                        observer.onNext(RepositoryResponse(value: result, restDataResponse: response))
+                        observer.onCompleted()
+                    } catch {
+                        observer.onNext(RepositoryResponse(error: response.error))
+                        observer.onError(response.error!)
+                        print(error)
+                    }
                 }
             }
             return Disposables.create()
