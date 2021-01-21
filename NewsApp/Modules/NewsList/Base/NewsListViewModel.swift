@@ -33,10 +33,10 @@ class NewsListViewModel {
                     self?.totlaNews = dataResponse.value!.totalResults!
                     self?.newsListResponse.onNext(dataResponse.value!.articles!)
                 } else {
-                    self?.onShowError.onNext(dataResponse.value!.code ?? "Unknown error")
+                    self?.onShowError.onNext(dataResponse.value?.code ?? "Unknown error")
                 }
             } else {
-                self?.onShowError.onNext(dataResponse.value!.code ?? "Unknown error")
+                self?.onShowError.onNext(dataResponse.value?.code ?? "Unknown error")
             }
         }).disposed(by: disposeBag)
     }
