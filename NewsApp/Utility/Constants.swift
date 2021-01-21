@@ -7,4 +7,4 @@
 
 import Foundation
 
-let ApiToken = "904f2cc75fb945f499645a1de923dd83"
+let ApiToken = "15a982e3d04d4ca38a89a9053a43b087"
